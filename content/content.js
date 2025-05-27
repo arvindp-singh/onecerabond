@@ -6,7 +6,7 @@
 export const content = {
   // Company information
   company: {
-    name: "Onecerabond",
+    name: "Onecera Bond",
     tagline: "Superior bonding solutions for construction professionals.",
     description: "Quality products for lasting results.",
     phone: "+91 123-456-7890",
@@ -34,11 +34,31 @@ export const content = {
     },
     // Social media links
     socialMedia: [
-      { name: "Facebook", url: "https://facebook.com/onecerabond", icon: "Facebook" },
-      { name: "Instagram", url: "https://instagram.com/onecerabond", icon: "Instagram" },
-      { name: "Twitter", url: "https://twitter.com/onecerabond", icon: "Twitter" },
-      { name: "LinkedIn", url: "https://linkedin.com/company/onecerabond", icon: "Linkedin" },
-      { name: "YouTube", url: "https://youtube.com/onecerabond", icon: "Youtube" },
+      {
+        name: "Facebook",
+        url: "https://facebook.com/onecerabond",
+        icon: "Facebook",
+      },
+      {
+        name: "Instagram",
+        url: "https://instagram.com/onecerabond",
+        icon: "Instagram",
+      },
+      {
+        name: "Twitter",
+        url: "https://twitter.com/onecerabond",
+        icon: "Twitter",
+      },
+      {
+        name: "LinkedIn",
+        url: "https://linkedin.com/company/onecerabond",
+        icon: "Linkedin",
+      },
+      {
+        name: "YouTube",
+        url: "https://youtube.com/onecerabond",
+        icon: "Youtube",
+      },
     ],
   },
 
@@ -56,7 +76,7 @@ export const content = {
     title: "Superior Bonding Solutions",
     subtitle: "for Construction Professionals",
     description:
-      "Onecerabond delivers high-performance tile adhesives and construction materials that ensure lasting quality and reliability.",
+      "Onecera bond delivers high-performance tile adhesives and construction materials that ensure lasting quality and reliability.",
     buttons: [
       {
         text: "Explore Products",
@@ -94,21 +114,22 @@ export const content = {
   about: {
     title: "About Us",
     paragraphs: [
-      "Onecerabond is a leading manufacturer of high-quality tile adhesives and construction materials in India with an international office in Maryland, USA. With years of industry experience, we have established ourselves as a trusted partner for construction professionals and homeowners alike.",
+      "Onecera Bond is a leading manufacturer of high-quality tile adhesives and construction materials in India with an international office in Maryland, USA. With years of industry experience, we have established ourselves as a trusted partner for construction professionals and homeowners alike.",
       "Our state-of-the-art manufacturing facility in Greater Noida ensures that every product meets the highest standards of quality and performance. We combine innovative technology with traditional expertise to deliver solutions that stand the test of time.",
-      "At Onecerabond, we are committed to sustainability and environmental responsibility. Our products are designed to minimize environmental impact while maximizing efficiency and durability.",
+      "At Onecera Bond, we are committed to sustainability and environmental responsibility. Our products are designed to minimize environmental impact while maximizing efficiency and durability.",
       "Our grouts, cleaners, and adhesives are developed using advanced USA-based technology, ensuring superior performance, durability, and safety for all applications.",
     ],
     image: {
       src: "/placeholder.svg?height=400&width=600",
-      alt: "Onecerabond manufacturing facility",
+      alt: "Onecera Bond manufacturing facility",
     },
   },
 
   // Technology section content
   technology: {
     title: "USA-Based Technology",
-    description: "Our products are developed using cutting-edge American technology and expertise.",
+    description:
+      "Our products are developed using cutting-edge American technology and expertise.",
     features: [
       {
         title: "Advanced Grout Technology",
@@ -131,13 +152,14 @@ export const content = {
   // Testimonials section content
   testimonials: {
     title: "Customer Testimonials",
-    description: "Don't just take our word for it. Here's what our customers have to say about Onecerabond products.",
+    description:
+      "Don't just take our word for it. Here's what our customers have to say about Onecera Bond products.",
     items: [
       {
         name: "Rajesh Kumar",
         role: "Construction Contractor",
         quote:
-          "I've been using Onecerabond tile adhesives for over 3 years now. The quality is consistently excellent, and my clients are always satisfied with the results.",
+          "I've been using Onecera Bond tile adhesives for over 3 years now. The quality is consistently excellent, and my clients are always satisfied with the results.",
         image: {
           src: "/placeholder.svg?height=100&width=100",
           alt: "Rajesh Kumar",
@@ -147,7 +169,7 @@ export const content = {
         name: "Priya Sharma",
         role: "Interior Designer",
         quote:
-          "The waterproof grout from Onecerabond is a game-changer for bathroom renovations. It's easy to apply and provides excellent resistance to moisture.",
+          "The waterproof grout from Onecera Bond is a game-changer for bathroom renovations. It's easy to apply and provides excellent resistance to moisture.",
         image: {
           src: "/placeholder.svg?height=100&width=100",
           alt: "Priya Sharma",
@@ -157,7 +179,7 @@ export const content = {
         name: "Amit Patel",
         role: "Property Developer",
         quote:
-          "We've completed several large-scale projects using Onecerabond products. Their technical support team is always helpful, and the products perform exceptionally well.",
+          "We've completed several large-scale projects using Onecera Bond products. Their technical support team is always helpful, and the products perform exceptionally well.",
         image: {
           src: "/placeholder.svg?height=100&width=100",
           alt: "Amit Patel",
@@ -193,7 +215,10 @@ export const content = {
       {
         type: "hours",
         icon: "Clock",
-        content: ["India: Monday–Saturday: 9 AM–6 PM IST | Sunday: Closed", "USA: Monday–Friday: 9 AM–5 PM EST"],
+        content: [
+          "India: Monday–Saturday: 9 AM–6 PM IST | Sunday: Closed",
+          "USA: Monday–Friday: 9 AM–5 PM EST",
+        ],
       },
     ],
     // Contact form fields
@@ -201,9 +226,25 @@ export const content = {
       title: "Send us a message",
       fields: [
         { id: "name", label: "Name", type: "text", placeholder: "Your name" },
-        { id: "email", label: "Email", type: "email", placeholder: "Your email" },
-        { id: "subject", label: "Subject", type: "text", placeholder: "Subject" },
-        { id: "message", label: "Message", type: "textarea", placeholder: "Your message", rows: 4 },
+        {
+          id: "email",
+          label: "Email",
+          type: "email",
+          placeholder: "Your email",
+        },
+        {
+          id: "subject",
+          label: "Subject",
+          type: "text",
+          placeholder: "Subject",
+        },
+        {
+          id: "message",
+          label: "Message",
+          type: "textarea",
+          placeholder: "Your message",
+          rows: 4,
+        },
       ],
       submitText: "Send Message",
     },
@@ -219,8 +260,8 @@ export const content = {
       { name: "Products", href: "/products" },
       { name: "Contact", href: "#contact" },
     ],
-    copyright: "© {year} Onecerabond. All rights reserved.",
+    copyright: "© {year} Onecera Bond. All rights reserved.",
   },
-}
+};
 
-export default content
+export default content;
