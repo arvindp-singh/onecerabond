@@ -9,7 +9,7 @@ services:
     environment:
       - VIRTUAL_HOST=onecerabond.com,www.onecerabond.com
       - LETSENCRYPT_HOST=onecerabond.com,www.onecerabond.com
-      - LETSENCRYPT_EMAIL=dshershah@gmail.com
+          - LETSENCRYPT_EMAIL=arvind.p.singh@oulook.com
     networks:
       - nginx-proxy
     restart: unless-stopped
