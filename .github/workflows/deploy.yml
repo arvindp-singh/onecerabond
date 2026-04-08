@@ -1,50 +1,45 @@
-name: Deploy to VPS
+name: Deploy onecerabond to Hostinger VPS
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    
+    name: Build Next.js 15 app and deploy via SSH
+
     steps:
-      - name: Checkout code
+      - name: Checkout source
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
           cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build React app
+      - name: Lint
+        run: npm run lint --if-present
+
+      - name: Build Next.js app
         run: npm run build
-        env:
-          CI: false
 
-      - name: Deploy to VPS
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USERNAME }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          port: ${{ secrets.VPS_PORT }}
-          source: "build/,nginx.conf,docker-compose.prod.yml"
-          target: "/srv/sites/onecerabond"
-          strip_components: 0
-
-      - name: Restart Docker container
+      - name: Deploy to VPS via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USERNAME }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          port: ${{ secrets.VPS_PORT }}
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
           script: |
-            cd /srv/sites/onecerabond
-            docker compose -f docker-compose.prod.yml up -d --force-recreate
+            cd /srv/sites/onecerabond.com
+            git pull origin main
+            npm ci --omit=dev
+            npm run build
+            pm2 restart onecerabond || pm2 start npm --name "onecerabond" -- start
+            echo "Deployment complete at $(date)"
