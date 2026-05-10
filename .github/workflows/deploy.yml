@@ -1,0 +1,40 @@
+name: Deploy onecerabond to Hostinger VPS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    name: Build and deploy via SSH
+
+    steps:
+    - name: Checkout source
+      uses: actions/checkout@v4
+
+    - name: Copy source files to VPS via SCP
+      uses: appleboy/scp-action@v0.1.7
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        source: "app/,components/,content/,public/,next.config.mjs,jsconfig.json,package.json,package-lock.json,postcss.config.mjs,eslint.config.mjs,Dockerfile,docker-compose.yml"
+        target: "/root/projects/onecerabond.com"
+        rm: false
+
+    - name: Rebuild Docker container on VPS
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          set -e
+          cd /root/projects/onecerabond.com
+          docker compose down --remove-orphans 2>/dev/null || true
+          docker compose up --build -d
+          echo "Deployment complete: $(date)"
