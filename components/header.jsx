@@ -6,7 +6,7 @@
  * Displays the site header with logo and navigation menu
  * Includes responsive mobile menu toggle and improved mobile experience
  */
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { content } from "@/content/content";

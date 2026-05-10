@@ -1,19 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  images: {
-    domains: ["placeholder.svg"],
-    unoptimized: true,
-  },
-  // Enable static exports
-  output: "export",
   images: { unoptimized: true },
+  // remove: output: 'export',
 };
 
 export default nextConfig;
