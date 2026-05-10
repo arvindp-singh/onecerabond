@@ -35,6 +35,6 @@ jobs:
         script: |
           set -e
           cd /root/projects/onecerabond.com
-          docker rm -f onecerabond-app 2>/dev/null || true
+          docker compose down --remove-orphans 2>/dev/null || true
           docker compose up --build -d
           echo "Deployment complete: $(date)"
